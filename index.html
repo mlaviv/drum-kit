@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drum Kit</title>
+    <link rel="shortcut icon" href="icons8-bass-drum-32.png" type="image/x-icon">
+
+    <style>
+        body {
+            background: no-repeat url('https://images.unsplash.com/photo-1524230659092-07f99a75c013?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .key {
+            padding: 2rem;
+            margin: 1rem;
+            border: 2px solid black;
+            border-radius: 1rem;
+            color: white;
+            background-color: rgba(0, 0, 0, .4);
+            transition: all .7s;
+            font-size: 1.5rem;
+        }
+
+        .playing {
+            transform: scale(1.1);
+            border-color: yellow;
+            color: yellow;
+
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="key" data-key="65">A</div>
+        <div class="key" data-key="66">B</div>
+        <div class="key" data-key="67">C</div>
+        <div class="key" data-key="68">D</div>
+        <div class="key" data-key="69">E</div>
+        <div class="key" data-key="70">F</div>
+        <div class="key" data-key="71">G</div>
+        <div class="key" data-key="72">H</div>
+        <div class="key" data-key="73">I</div>
+        <div class="key" data-key="74">J</div>
+        <div class="key" data-key="75">K</div>
+        <div class="key" data-key="76">L</div>
+        <div class="key" data-key="77">M</div>
+        <div class="key" data-key="78">N</div>
+        <div class="key" data-key="79">O</div>
+        <div class="key" data-key="80">P</div>
+        <div class="key" data-key="81">Q</div>
+        <div class="key" data-key="82">R</div>
+        <div class="key" data-key="83">S</div>
+        <div class="key" data-key="84">T</div>
+        <div class="key" data-key="85">U</div>
+        <div class="key" data-key="86">V</div>
+        <div class="key" data-key="87">W</div>
+        <div class="key" data-key="88">X</div>
+        <div class="key" data-key="89">Y</div>
+        <div class="key" data-key="90">Z</div>
+    </div>
+
+
+            <audio  data-key="65" src="/909-Drum-Kit/909CX 31 SN3  2.wav"></audio>
+            <audio  data-key="66" src="/909-Drum-Kit/909CX 31 SN3  4.wav"></audio>
+            <audio  data-key="67" src="/909-Drum-Kit/909CX 31 SN3  6.wav"></audio>
+            <audio  data-key="68" src="/909-Drum-Kit/909CX 31 SN3  8.wav"></audio>
+            <audio  data-key="69" src="/909-Drum-Kit/909CX 33 BD3  4.wav"></audio>
+            <audio  data-key="70" src="/909-Drum-Kit/909CX 35 BD1  4.wav"></audio>
+            <audio  data-key="71" src="/909-Drum-Kit/909CX 35 BD1  8.wav"></audio>
+            <audio  data-key="72" src="/909-Drum-Kit/909CX 35 BD1  6.wav"></audio>
+            <audio  data-key="73" src="/909-Drum-Kit/909CX 35 BD1  2.wav"></audio>
+            <audio  data-key="74" src="/909-Drum-Kit/909CX 36 BD2  2.wav"></audio>
+            <audio  data-key="75" src="/909-Drum-Kit/909CX 36 BD2  4.wav"></audio>
+            <audio  data-key="76" src="/909-Drum-Kit/909CX 36 BD2  4.wav"></audio>
+            <audio  data-key="77" src="/909-Drum-Kit/909CX 36 BD2  6.wav"></audio>
+            <audio  data-key="78" src="/909-Drum-Kit/909CX 36 BD2  8.wav"></audio>
+            <audio  data-key="79" src="/909-Drum-Kit/909CX 37 RM1 8.wav"></audio>
+            <audio  data-key="80" src="/909-Drum-Kit/909CX 38 SN1 2.wav"></audio>
+            <audio  data-key="81" src="/909-Drum-Kit/909CX 38 SN1 4.wav"></audio>
+            <audio  data-key="82" src="/909-Drum-Kit/909CX 38 SN1 4.wav"></audio>
+            <audio  data-key="83" src="/909-Drum-Kit/909CX 51 RD2 8.wav"></audio>
+            <audio  data-key="84" src="/909-Drum-Kit/909CX 31 SN3  2.wav"></audio>
+            <audio  data-key="85" src="/909-Drum-Kit/909CX 31 SN3  2.wav"></audio>
+            <audio  data-key="86" src="/909-Drum-Kit/909CX 44 PHH 2.wav"></audio>
+            <audio  data-key="87" src="/909-Drum-Kit/909CX 47 MTH 8.wav"></audio>
+            <audio  data-key="88" src="/909-Drum-Kit/909CX 48 HTL 8.wav"></audio>
+            <audio  data-key="89" src="/909-Drum-Kit/909CX 46 OHH 8.wav"></audio>
+            <audio  data-key="90" src="/909-Drum-Kit/909CX 48 HTL 8.wav"></audio>
+    
+
+    <script>
+        window.addEventListener('keydown' , (e) => {
+            const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+            const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+
+            if (!audio) return ;
+            audio.currentTime = 0 ;
+            audio.play();
+            key.classList.add('playing');
+})
+        const keys = document.querySelectorAll('.key');
+        keys.forEach((key) => {
+            key.addEventListener('transitionend' , (e) => {
+                if (e.propertyName !== 'transform') return ;
+                key.classList.remove('playing')
+            })
+        })
+    </script>
+</body>
+</html>
